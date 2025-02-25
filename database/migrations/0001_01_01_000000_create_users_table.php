@@ -18,6 +18,15 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->text('bio')->nullable();
+            $table->json('competence')->nullable();
+            $table->string('github_name')->nullable();
+            $table->foreignId('commentaire_id')->constrained()->onDelete('cascade');
+            $table->foreignId('like_id')->constrained()->onDelete('cascade');
+            $table->foreignId('notification_id')->constrained()->onDelete('cascade');
+            $table->foreignId('connectionRequest_id')->constrained()->onDelete('cascade');
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
+            $table->foreignId('share_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 

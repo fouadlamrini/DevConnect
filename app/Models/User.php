@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'bio',
+        'competence',
+        'github_name',
+       
     ];
 
     /**
@@ -44,5 +49,36 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function Commentaire():HasMany
+    {
+        return $this->hasMany(Commentaire::class);
+
+    }
+
+    public function Like():HasMany
+    {
+        return $this->hasMany(Like::class);
+    
+    }
+    public function Notification():HasMany
+    {
+        return $this->hasMany(Notification::class);
+    
+    }
+    public function ConnectionRequest():HasMany
+    {
+        return $this->hasMany(ConnectionRequest::class);
+    
+    }
+    public function Post():HasMany
+    {
+        return $this->hasMany(Post::class);
+    
+    }
+    public function Share():HasMany
+    {
+        return $this->hasMany(Share::class);
+    
     }
 }
