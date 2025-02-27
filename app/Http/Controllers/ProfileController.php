@@ -21,11 +21,15 @@ class ProfileController extends Controller
         ]);
     }
 
+    
     public function index(Request $request): View
     {
         return view('dashboardUser', [
             'user' => $request->user(),
         ]);
+    }
+    public function show(){
+        return view('profile');
     }
 
     /**
