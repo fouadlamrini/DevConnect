@@ -25,6 +25,11 @@ class User extends Authenticatable
         'bio',
         'competence',
         'github_name',
+        'profession',
+        'image',
+        'location',
+        'age',
+        'languages'
        
     ];
 

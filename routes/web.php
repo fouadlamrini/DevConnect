@@ -30,7 +30,10 @@ Route::get('/', function () {
 });
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/editProfile/edit', [ProfileController::class, 'edit'])->name('editProfile.edit');
+Route::post('/editProfile', [ProfileController::class, 'update']);
 
 
 require __DIR__.'/auth.php';
