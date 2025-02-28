@@ -11,15 +11,16 @@
     <main class="container mx-auto p-4">
         <section class="mb-8 bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-xl font-semibold mb-4">Modifier le Profile</h2>
-            <form method="POST" action="/editProfile">
+            <form method="POST" action="/updateProfile/{{$user->id}}">
                 @csrf
+                @method('PUT')
                 <div class="mb-4">
                     <label for="bio" class="block text-gray-700">Bio</label>
                     <textarea id="bio" name="bio" rows="4" class="w-full p-2 border border-gray-300 rounded mt-1" required></textarea>
                 </div>
                 <div class="mb-4">
                     <label for="competence" class="block text-gray-700">Compétence</label>
-                    <input type="text" id="competence" name="competence" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <input type="text" id="competence" value="{{$user->competence}}" name="competence" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-4">
                     <label for="githubName" class="block text-gray-700">GitHub Name</label>

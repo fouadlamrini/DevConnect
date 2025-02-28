@@ -19,24 +19,21 @@ class Post extends Model
         'image',
     ];
 
-    public function Commentaire():HasMany 
-    {
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments() {
         return $this->hasMany(Commentaire::class);
-
     }
-    public function User():BelongsTo 
-    {
-        return $this->BelongsTo(User::class);
 
+
+    public function likes() {
+        return $this->hasMany(Like::class);
     }
-    public function Hashtag():HasMany 
-    {
-        return $this->HasMany(Hashtag::class);
 
-    }
-    public function Like():HasMany 
-    {
-        return $this->HasMany(Like::class);
-
+ 
+    public function hashtags() {
+        return $this->belongsToMany(Hashtag::class);
     }
 }
