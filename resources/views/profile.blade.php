@@ -48,7 +48,7 @@
                   <!-- Section Certifications -->
                   <div class="p-6">
                       <h2 class="text-xl font-bold text-gray-800">github name</h2>
-                     <p>{{Auth::user()->github_name }}</p>
+                    <a style="color: blue" href=" {{Auth::user()->github_name }}"> {{Auth::user()->github_name }}</a>
                   </div>
       
                   <!-- Section Langages de Programmation -->

@@ -12,16 +12,18 @@ class Like extends Model
     /** @use HasFactory<\Database\Factories\LikeFactory> */
     use HasFactory;
     protected $fillable = [
+        'user_id',
+        'post_id',
        
     ];
-    public function User():BelongsTo 
+    public function User():belongsTo 
     {
-        return $this->BelongsTo(User::class);
+        return $this->belongsTo(User::class);
 
     }
-    public function Post():BelongsTo 
+    public function Post():belongsTo 
     {
-        return $this->BelongsTo(Post::class);
+        return $this->belongsTo(Post::class);
 
     }
 }

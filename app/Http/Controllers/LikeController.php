@@ -5,9 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\Like;
 use App\Http\Requests\StoreLikeRequest;
 use App\Http\Requests\UpdateLikeRequest;
+use App\Models\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
+    public function toggleLike(Post $post)
+    {
+        
+        $like = $post->likes()->where('user_id', Auth::id())->first();
+       
+        if ($like) {
+            $like->delete();
+            $isLiked = false;
+        } else {
+            $post->likes()->create([
+                'user_id' => Auth::id(),
+                'post_id' => $post->id
+            ]);
+            $isLiked = true;
+        }
+
+        return redirect()->back();
+    }
+
+
     /**
      * Display a listing of the resource.
      */

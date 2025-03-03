@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -32,6 +33,7 @@ Route::get('/', function () {
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::post('/posts/{post}/like', [LikeController::class, 'toggleLike'])->name('like.store');
 Route::get('/editProfile/edit', [ProfileController::class, 'edit'])->name('editProfile.edit');
 Route::put('/updateProfile/{id}', [ProfileController::class, 'update']);
 
