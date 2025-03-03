@@ -28,57 +28,52 @@
               <div class="bg-white shadow-lg rounded-lg overflow-hidden">
                   <!-- Section Image et Nom -->
                   <div class="text-center p-6 bg-blue-800">
-                      <img class="h-24 w-24 rounded-full mx-auto" src="https://via.placeholder.com/150" alt="Profile Image">
+                      <img class="h-24 w-24 rounded-full mx-auto" src=" {{ asset('images/' . Auth::user()->image) }}" alt="Profile Image">
                       <h1 class="text-white text-2xl font-bold mt-4">{{Auth::user()->name }}</h1>
-                      <p class="text-gray-400">Développeur Full Stack</p>
+                      <p class="text-gray-400"> {{Auth::user()->profession }}</p>
                   </div>
       
                   <!-- Section Information -->
                   <div class="p-6">
                       <h2 class="text-xl font-bold text-gray-800">À propos de moi</h2>
-                      <p class="text-gray-600 mt-2">Je suis un développeur passionné par la création d'applications web modernes et performantes. J'aime travailler avec les dernières technologies et résoudre des problèmes complexes.</p>
+                      <p class="text-gray-600 mt-2">{{Auth::user()->bio }}</p>
                   </div>
       
                   <!-- Section Compétences Techniques -->
                   <div class="p-6">
                       <h2 class="text-xl font-bold text-gray-800">Compétences Techniques</h2>
-                      <ul class="list-disc list-inside text-gray-600 mt-2">
-                          <li>HTML, CSS, JavaScript</li>
-                          <li>React, Node.js</li>
-                          <li>Tailwind CSS, Bootstrap</li>
-                          <li>Git, Docker</li>
-                      </ul>
+                   <p>{{Auth::user()->competence }}</p>
                   </div>
       
                   <!-- Section Certifications -->
                   <div class="p-6">
-                      <h2 class="text-xl font-bold text-gray-800">Certifications</h2>
-                      <ul class="list-disc list-inside text-gray-600 mt-2">
-                          <li>Certification AWS Certified Developer</li>
-                          <li>Certification Google Professional Data Engineer</li>
-                      </ul>
+                      <h2 class="text-xl font-bold text-gray-800">github name</h2>
+                     <p>{{Auth::user()->github_name }}</p>
                   </div>
       
                   <!-- Section Langages de Programmation -->
                   <div class="p-6">
                       <h2 class="text-xl font-bold text-gray-800">Langages de Programmation</h2>
-                      <ul class="list-disc list-inside text-gray-600 mt-2">
-                          <li>JavaScript</li>
-                          <li>Python</li>
-                          <li>Java</li>
-                          <li>C#</li>
-                      </ul>
+                     <p>
+                      {{Auth::user()->languages }}
+                     </p>
                   </div>
       
                   <!-- Section Projets Réalisés -->
                   <div class="p-6">
-                      <h2 class="text-xl font-bold text-gray-800">Projets Réalisés</h2>
-                      <ul class="list-disc list-inside text-gray-600 mt-2">
-                          <li>Application de gestion de tâches</li>
-                          <li>Site e-commerce avec React</li>
-                          <li>API RESTful avec Node.js</li>
-                      </ul>
+                      <h2 class="text-xl font-bold text-gray-800">Projet realiser</h2>
+                      <p></p>
                   </div>
+                  <div class="p-6">
+                      <h2 class="text-xl font-bold text-gray-800">Location</h2>
+                      <p>{{Auth::user()->location }}</p>
+                  </div>
+      
+                  <div class="p-6">
+                      <h2 class="text-xl font-bold text-gray-800">age</h2>
+                      <p>{{Auth::user()->age }}</p>
+                  </div>
+                 
       
                   <!-- Section Connexion -->
                   <div class="p-6">

@@ -35,7 +35,6 @@ class PostController extends Controller
     { 
     $post = Post::create([
         'user_id' => Auth::user()->id,
-        'hashtag_id'=> 1,
         'content' => $request->content,
         'code_snippet' => $request->code_snippet,
         'image' => $request->image, 

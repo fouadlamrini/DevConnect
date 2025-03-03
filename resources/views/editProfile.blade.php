@@ -16,7 +16,7 @@
                 @method('PUT')
                 <div class="mb-4">
                     <label for="bio" class="block text-gray-700">Bio</label>
-                    <textarea id="bio" name="bio" rows="4" class="w-full p-2 border border-gray-300 rounded mt-1" required></textarea>
+                    <textarea id="bio" name="bio" rows="4" class="w-full p-2 border border-gray-300 rounded mt-1" required>{{ old('bio', $user->bio) }}</textarea>
                 </div>
                 <div class="mb-4">
                     <label for="competence" class="block text-gray-700">Compétence</label>
@@ -24,27 +24,27 @@
                 </div>
                 <div class="mb-4">
                     <label for="githubName" class="block text-gray-700">GitHub Name</label>
-                    <input type="text" id="githubName" name="githubName" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <input type="text" id="githubName" value="{{$user->github_name}}" name="githubName" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-4">
                     <label for="profession" class="block text-gray-700">Profession</label>
-                    <input type="text" id="profession" name="profession" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <input type="text" id="profession" value="{{$user->profession}}" name="profession" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block text-gray-700">Image URL</label>
-                    <input type="url" id="image" name="image" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <input type="text" value="{{$user->image}}" id="image" name="image" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-4">
                     <label for="location" class="block text-gray-700">Location</label>
-                    <input type="text" id="location" name="location" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <input type="text" id="location" value="{{$user->location}}" name="location" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-4">
                     <label for="age" class="block text-gray-700">Age</label>
-                    <input type="number" id="age" name="age" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <input type="number" id="age" value="{{$user->age}}" name="age" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <div class="mb-4">
                     <label for="languages" class="block text-gray-700">Languages</label>
-                    <input type="text" id="languages" name="languages" class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <input type="text" id="languages" value="{{$user->languages}}" name="languages" class="w-full p-2 border border-gray-300 rounded mt-1">
                 </div>
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update</button>
             </form>
