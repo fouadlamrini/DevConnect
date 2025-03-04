@@ -65,7 +65,7 @@
                         Comment
                         <span>5</span>
                       </button> --}}
-                      @livewire('commentaire')
+                      @livewire('commentaire', ['post_id' => $item->id])
 
                     
                       

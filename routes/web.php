@@ -37,7 +37,7 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::post('/posts/{post}/like', [LikeController::class, 'toggleLike'])->name('like.store');
 Route::get('/editProfile/edit', [ProfileController::class, 'edit'])->name('editProfile.edit');
 Route::put('/updateProfile/{id}', [ProfileController::class, 'update']);
-Route::get('/counter', Commentaire::class);
+// Route::get('/counter', Commentaire::class);
 
 
 require __DIR__.'/auth.php';
