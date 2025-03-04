@@ -4,6 +4,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Livewire\Commentaire;
 
 
 // Route::get('/', function () {
@@ -36,6 +37,7 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::post('/posts/{post}/like', [LikeController::class, 'toggleLike'])->name('like.store');
 Route::get('/editProfile/edit', [ProfileController::class, 'edit'])->name('editProfile.edit');
 Route::put('/updateProfile/{id}', [ProfileController::class, 'update']);
+Route::get('/counter', Commentaire::class);
 
 
 require __DIR__.'/auth.php';
