@@ -6,18 +6,23 @@ use Livewire\Component;
 use App\Models\Commentaires;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use App\Models\Post;
 class Commentaire extends Component
 {
     // public $commentaires;
+    public $post;
     public $post_id;
     public $content;
+    public $commentsCount;
     
 
     protected $listeners = ['refreshComments' => '$refresh'];
     
         public function mount($post_id){
             $this->post_id = $post_id;
+            $this->post = Post::withCount('commentaires')->findOrFail($this->post_id);
+            $this->commentsCount = $this->post->commentaires_count;
+         
         }
     
 
@@ -34,6 +39,9 @@ class Commentaire extends Component
             'post_id' => $this->post_id,
             'content' => $this->content,
         ]);
+        $this->post = Post::withCount('commentaires')->findOrFail($this->post_id);
+        $this->commentsCount = $this->post->commentaires_count;
+
 
         $this->dispatch('refreshComments');
         $this->content = ''; 
@@ -51,7 +59,11 @@ class Commentaire extends Component
     
     public function render()
     {
-        return view('livewire.commentaire', ['comments' => Commentaires::where('post_id', $this->post_id)->latest()->get()
+        $comments = Commentaires::where('post_id', $this->post_id)->latest()->get();
+        return view('livewire.commentaire', [
+            'comments' => $comments,
+            'commentsCount' => $this->commentsCount,
+        
     
     ]);
     }

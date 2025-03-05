@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Commentaire;
+use App\Models\Commentaires;
+use App\Models\Post;
 use App\Http\Requests\StoreCommentaireRequest;
 use App\Http\Requests\UpdateCommentaireRequest;
 
 class CommentaireController extends Controller
 {
+
+   
     /**
      * Display a listing of the resource.
      */
@@ -35,7 +38,7 @@ class CommentaireController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Commentaire $commentaire)
+    public function show(Commentaires $commentaire)
     {
         //
     }
@@ -43,7 +46,7 @@ class CommentaireController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Commentaire $commentaire)
+    public function edit(Commentaires $commentaire)
     {
         //
     }
@@ -51,7 +54,7 @@ class CommentaireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCommentaireRequest $request, Commentaire $commentaire)
+    public function update(UpdateCommentaireRequest $request, Commentaires $commentaire)
     {
         //
     }
@@ -59,7 +62,7 @@ class CommentaireController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Commentaire $commentaire)
+    public function destroy(Commentaires $commentaire)
     {
         //
     }

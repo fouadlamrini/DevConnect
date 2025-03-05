@@ -59,7 +59,7 @@ class User extends Authenticatable
     
     public function Commentaire():HasMany
     {
-        return $this->hasMany(Commentaire::class);
+        return $this->hasMany(Commentaires::class);
 
     }
 

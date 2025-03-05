@@ -40,4 +40,5 @@ Route::put('/updateProfile/{id}', [ProfileController::class, 'update']);
 // Route::get('/counter', Commentaire::class);
 
 
+
 require __DIR__.'/auth.php';
