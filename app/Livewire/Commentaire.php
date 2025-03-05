@@ -7,7 +7,9 @@ use App\Models\Commentaires;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Carbon\Carbon;
 class Commentaire extends Component
+
 {
     // public $commentaires;
     public $post;
