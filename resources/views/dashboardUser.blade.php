@@ -14,7 +14,7 @@
         <div class="text-2xl font-semibold text-center">DevConnect</div>
         <nav>
           <a href="dashboard" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Home</a>
-          <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Posts</a>
+          <a href="{{ route('postGeneral') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Posts</a>
           <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Connection</a>
           <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Notification</a>
           <a href="{{ route('myprofile') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Profile</a>

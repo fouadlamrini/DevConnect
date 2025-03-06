@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Http\Request;
@@ -15,8 +16,14 @@ class PostController extends Controller
      */
     public function index(Request $request)
 {
-    $posts = Post::all();
+   $posts = Auth::user()->posts;
+
     return view('dashboardUser', compact('posts'));
+}
+    public function postGeneral(Request $request)
+{
+    $posts = Post::all();
+    return view('postGeneral', compact('posts'));
 }
 
 

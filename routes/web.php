@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Livewire\Commentaire;
+use App\Http\Controllers\TweetController;
 
 
 // Route::get('/', function () {
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/dashboard', [PostController::class, 'index'])->name('dashboard');
+    Route::get('/postGeneral', [PostController::class, 'postGeneral'])->name('postGeneral');
 });
 
 
@@ -38,6 +40,12 @@ Route::post('/posts/{post}/like', [LikeController::class, 'toggleLike'])->name('
 Route::get('/editProfile/edit', [ProfileController::class, 'edit'])->name('editProfile.edit');
 Route::put('/updateProfile/{id}', [ProfileController::class, 'update']);
 // Route::get('/counter', Commentaire::class);
+
+Route::get('/tweet', function () {
+    return view('tweet');
+});
+Route::post('/tweets', [TweetController::class, 'store'])->name('posts.store');
+Route::view('pusher1', 'pusher1');
 
 
 
