@@ -29,13 +29,25 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
               @foreach ($posts as $item)
               
-              <div class="bg-white shadow-lg rounded-lg p-4 border border-gray-200 relative"> <!-- Ajoutez "relative" ici -->
+              <div class="bg-white shadow-lg rounded-lg p-4 border border-gray-200 relative">
                 <!-- Bouton des trois points en haut à droite de la carte -->
-                <button class="text-gray-500 hover:text-gray-700 transition-colors duration-200 absolute right-4 top-4">
+                <button onclick="toggleOptions(event)" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 absolute right-4 top-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
                     </svg>
                 </button>
+            
+                <!-- Menu déroulant -->
+                <div id="optionsMenu" class="absolute right-4 top-12 w-48 bg-white rounded-md shadow-lg hidden">
+                    <ul>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Modifier</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 text-red-600 hover:bg-red-50">Supprimer</a>
+                        </li>
+                    </ul>
+                </div>
             
                 <!-- User Information -->
                 <div class="w-20 h-20 flex items-center">
@@ -74,11 +86,29 @@
                     @livewire('commentaire', ['post_id' => $item->id])
                 </div>
             </div>
+            
+           
               @endforeach
           </div>
       </div>
     
       </div>
+      <script>
+        // Fonction pour afficher ou masquer le menu déroulant
+        function toggleOptions(event) {
+            event.stopPropagation(); // Empêche la propagation de l'événement
+            const menu = document.getElementById('optionsMenu');
+            menu.classList.toggle('hidden');
+        }
+    
+        // Fermer le menu si on clique ailleurs sur la page
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('optionsMenu');
+            if (!menu.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
     </body>
     </html>
     </x-app-layout>
