@@ -78,7 +78,7 @@ class User extends Authenticatable
         return $this->hasMany(ConnectionRequest::class);
     
     }
-    public function Post():HasMany
+    public function Posts():HasMany
     {
         return $this->hasMany(Post::class);
     
