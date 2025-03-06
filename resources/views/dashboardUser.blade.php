@@ -31,7 +31,18 @@
                   
     
                     <!-- Post Image -->
-                    <img src="{{ asset('images/' . $item->image) }}" alt="Post Image" class="w-full h-40 object-cover rounded-md mb-4">
+                    
+                    <div class="w-20 h-20 flex">
+                      <img src="{{ asset('images/' . $item->user->image) }}" 
+                           alt="image profile" 
+                           class="w-full h-full object-cover rounded-full border border-gray-300 shadow-sm">
+
+                           <h1>{{ $item->user->name }}</h1>
+
+                  </div>
+                  
+
+                    <img src="{{ asset('images/' .$item->image) }}" alt="Post Image" class="w-full h-40 object-cover rounded-md mb-4">
     
                     <!-- Post Content -->
                     <p class="text-gray-800 text-lg font-semibold mb-2">{{ $item->content }}</p>
